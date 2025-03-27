@@ -1,0 +1,2 @@
+Sample	general_error_rate	mean_insert_size	median_insert_size	sequenced_bases	mapped_reads	total_reads	mean_mapping_quality	bam_file	mean_coverage	mapped_bases
+ERR1014019	0.0176	0.0	0.0	1515328.0	11355.0	11355.0	31.5956	ERR1014019_rmdup.bam	0.0005	1525877.0

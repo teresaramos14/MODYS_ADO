@@ -1,0 +1,2 @@
+Sample	Duplicate Unpaired	Unique Unpaired
+ERR1014019	24082.0	11355.0

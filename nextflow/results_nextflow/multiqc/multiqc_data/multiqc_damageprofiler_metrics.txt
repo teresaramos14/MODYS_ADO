@@ -1,0 +1,2 @@
+Sample	median	std	mean_readlength
+ERR1014019	142.0	52.5080652222677	143.7024332544749

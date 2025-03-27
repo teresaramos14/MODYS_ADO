@@ -1,0 +1,6 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+11	fc/a8166f	1026844	output_documentation	COMPLETED	0	2025-03-27 12:26:16.651	5s	284ms	100,2%	11.8 MB	16.5 MB	8.1 MB	7.4 MB
+4	42/13a84b	1026775	fastqc (ERR1014019_L0)	COMPLETED	0	2025-03-27 12:26:16.365	6.8s	2.2s	206,1%	272.5 MB	3.7 GB	26.8 MB	958.6 KB
+12	c0/d4252d	1026870	get_software_versions	COMPLETED	0	2025-03-27 12:26:16.670	10.9s	6.8s	348,3%	311.6 MB	10 GB	165.9 MB	27 KB
+2	c1/dae4a8	1026714	makeFastaIndex (h19.fasta)	COMPLETED	0	2025-03-27 12:26:16.347	14.4s	10.3s	99,2%	6.1 MB	11.8 MB	3 GB	3.7 KB
+3	14/ff0476	1026740	makeSeqDict (h19.fasta)	COMPLETED	0	2025-03-27 12:26:16.356	28.3s	24s	247,9%	3.8 GB	14.1 GB	3 GB	635.7 KB

@@ -1,0 +1,2 @@
+Sample	T>A	C>A	G>T	A>T	G>C	A>C	A>G	T>G	C>T	T>C	G>A	C>G
+ERR1014019	2.0	1.0	3.0	2.0	2.0	3.0	6.0	5.0	11.0	7.0	13.0	9.0

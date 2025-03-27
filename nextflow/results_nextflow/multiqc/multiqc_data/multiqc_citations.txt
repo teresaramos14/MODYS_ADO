@@ -1,0 +1,9 @@
+10.1093/bioinformatics/btw354                      # MultiQC
+10.1093/bioinformatics/btp352                      # Samtools
+10.1093/bioinformatics/btp352                      # Samtools-1
+10.1038/nmeth.2375                                 # preseq
+10.1093/bioinformatics/btab190                     # damageprofiler
+10.1093/bioinformatics/btv566                      # qualimap
+10.1093/bioinformatics/bts503                      # qualimap
+10.1093/gigascience/giab008                        # bcftools
+

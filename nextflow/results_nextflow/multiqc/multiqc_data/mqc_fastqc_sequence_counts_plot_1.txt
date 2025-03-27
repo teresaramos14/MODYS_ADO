@@ -1,0 +1,2 @@
+Sample	Unique Reads	Duplicate Reads
+ERR1014019	24543.0	17022.0

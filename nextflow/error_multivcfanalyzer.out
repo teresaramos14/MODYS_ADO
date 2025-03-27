@@ -1,0 +1,2760 @@
+N E X T F L O W  ~  version 20.07.1
+Launching `nf-core/eager` [distraught_mestorf] - revision: a2c9f87d17 [2.5.0]
+------------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~'
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/eager v2.5.0
+------------------------------------------------------
+
+No TSV file provided - creating TSV from supplied directory.
+Reading path(s): /home/alumno19/bin/FASTQ/ERR1014019.fastq.gz
+Generating single-end FASTQ data TSV
+[1mCore Nextflow options
+  revision                     : 2.5.0
+  runName                      : distraught_mestorf
+  containerEngine              : docker
+  container                    : nfcore/eager:2.5.0
+  launchDir                    : /home/alumno19/resultados_eager
+  workDir                      : /home/alumno19/resultados_eager/work
+  projectDir                   : /home/alumno19/.nextflow/assets/nf-core/eager
+  userName                     : alumno19
+  profile                      : docker
+  configFiles                  : /home/alumno19/.nextflow/assets/nf-core/eager/nextflow.config
+
+Input/output options
+  input                        : /home/alumno19/bin/FASTQ/ERR1014019.fastq.gz
+  single_end                   : true
+
+Reference genome options
+  fasta                        : /home/alumno19/trabajo_def_igv/h19.fasta
+  igenomes_base                : s3://ngi-igenomes/igenomes/
+  igenomes_ignore              : true
+
+Generic options
+  max_multiqc_email_size       : 25 MB
+  schema_ignore_params         : genomes,input_paths
+
+Max job request options
+  max_cpus                     : 40
+  max_memory                   : 32.GB
+  max_time                     : 24h
+
+Skip steps
+  skip_adapterremoval          : true
+
+Read merging and adapter removal
+  qualitymax                   : 64
+  post_ar_trim_front           : 50
+
+Read mapping to reference genome
+  mapper                       : bwamem
+
+BAM Filtering
+  run_bam_filtering            : true
+  bam_mapping_quality_threshold: 20
+  bam_filter_minreadlength     : 50
+
+Genotyping
+  run_genotyping               : true
+  genotyping_tool              : ug
+
+Consensus Sequence Generation
+  run_vcf2genome               : true
+  vcf2genome_minc              : 10
+  vcf2genome_minq              : 20
+
+SNP Table Generation
+  run_multivcfanalyzer         : true
+  write_allele_frequencies     : true
+  min_base_coverage            : 10
+  min_allele_freq_het          : 0.3
+
+------------------------------------------------------
+ Only displaying parameters that differ from defaults.
+------------------------------------------------------
+Schaffa, Schaffa, Genome Baua!
+[-        ] process > makeBWAIndex   -
+[-        ] process > makeFastaIndex -
+[-        ] process > makeSeqDict    -
+[-        ] process > convertBam     -
+[-        ] process > indexinputbam  -
+[-        ] process > fastqc         -
+
+executor >  local (1)
+[-        ] process > makeBWAIndex                   [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[-        ] process > makeSeqDict                    [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[-        ] process > fastqc                         [  0%] 0 of 1
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[-        ] process > output_documentation           [  0%] 0 of 1
+[-        ] process > get_software_versions          [  0%] 0 of 1
+
+executor >  local (3)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[-        ] process > fastqc                         [  0%] 0 of 1
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[-        ] process > output_documentation           [  0%] 0 of 1
+[-        ] process > get_software_versions          [  0%] 0 of 1
+[-        ] process > multiqc                        -
+
+executor >  local (4)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [  0%] 0 of 1
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[-        ] process > output_documentation           [  0%] 0 of 1
+[-        ] process > get_software_versions          [  0%] 0 of 1
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [  0%] 0 of 1
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [  0%] 0 of 1
+[f9/1d69db] process > get_software_versions          [  0%] 0 of 1
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [  0%] 0 of 1
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [  0%] 0 of 1
+[f9/1d69db] process > get_software_versions          [  0%] 0 of 1
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [  0%] 0 of 1
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [  0%] 0 of 1
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [  0%] 0 of 1
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [  0%] 0 of 1
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [  0%] 0 of 1
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (6)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [  0%] 0 of 1
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[-        ] process > bwamem                         -
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (7)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [  0%] 0 of 1
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (7)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [  0%] 0 of 1
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              -
+[-        ] process > samtools_filter                -
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (7)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[-        ] process > samtools_flagstat              [  0%] 0 of 1
+[-        ] process > samtools_filter                [  0%] 0 of 1
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (9)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [  0%] 0 of 1
+[d1/8a43be] process > samtools_filter (ERR1014019)   [  0%] 0 of 1
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (9)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [  0%] 0 of 1
+[-        ] process > samtools_flagstat_after_filter -
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 -
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         -
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (9)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[-        ] process > samtools_flagstat_after_filter [  0%] 0 of 1
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (10)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [  0%] 0 of 1
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[-        ] process > markduplicates                 [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (11)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [  0%] 0 of 1
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[-        ] process > preseq                         [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (12)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [  0%] 0 of 1
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (12)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [  0%] 0 of 1
+[-        ] process > endorSpy                       -
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (12)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[-        ] process > endorSpy                       [  0%] 0 of 1
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (13)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [  0%] 0 of 1
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [  0%] 0 of 1
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (13)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [  0%] 0 of 1
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (13)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [  0%] 0 of 1
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 -
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[-        ] process > qualimap                       -
+[-        ] process > picard_addorreplacereadgroups  -
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (14)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 [  0%] 0 of 1
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[-        ] process > picard_addorreplacereadgroups  [  0%] 0 of 1
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (15)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[-        ] process > damageprofiler                 [  0%] 0 of 1
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[85/5dc0cd] process > picard_addorreplacereadgrou... [  0%] 0 of 1
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (16)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [  0%] 0 of 1
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[85/5dc0cd] process > picard_addorreplacereadgrou... [  0%] 0 of 1
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (16)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [  0%] 0 of 1
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[85/5dc0cd] process > picard_addorreplacereadgrou... [  0%] 0 of 1
+[-        ] process > genotyping_ug                  -
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (16)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [  0%] 0 of 1
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[-        ] process > genotyping_ug                  [  0%] 0 of 1
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (17)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [  0%] 0 of 1
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [  0%] 0 of 1
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (17)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [  0%] 0 of 1
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [  0%] 0 of 1
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (17)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [  0%] 0 of 1
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 -
+[-        ] process > vcf2genome                     -
+[-        ] process > multivcfanalyzer               -
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (17)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[-        ] process > bcftools_stats                 [  0%] 0 of 1
+[-        ] process > vcf2genome                     [  0%] 0 of 1
+[-        ] process > multivcfanalyzer               [  0%] 0 of 1
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (19)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [  0%] 0 of 1
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[-        ] process > multivcfanalyzer               [  0%] 0 of 1
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [  0%] 0 of 1
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[41/36792e] process > multivcfanalyzer (1)           [  0%] 0 of 1
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [  0%] 0 of 1
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[41/36792e] process > multivcfanalyzer (1)           [  0%] 0 of 1
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [100%] 1 of 1 ✔
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[41/36792e] process > multivcfanalyzer (1)           [  0%] 0 of 1
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [100%] 1 of 1 ✔
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[41/36792e] process > multivcfanalyzer (1)           [  0%] 0 of 1
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+Error executing process > 'multivcfanalyzer (1)'
+
+Caused by:
+  Process `multivcfanalyzer (1)` terminated with an error exit status (1)
+
+Command executed:
+
+  pigz -d -f -p 2 ERR1014019.unifiedgenotyper.vcf.gz
+  multivcfanalyzer -Xmx4g NA h19.fasta NA . T 30 10 0.9 0.3 NA *.vcf
+  pigz -p 2 *.tsv *.txt snpAlignment.fasta snpAlignmentIncludingRefGenome.fasta fullAlignment.fasta
+  bgzip -@ 2 *.vcf
+
+Command exit status:
+  1
+
+Command output:
+  MultiVCFAnalyzer - 0.85.2
+  by Alexander Herbig
+
+Command error:
+  No positions to exclude provided! All positions will be used!
+  Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+  	at java.util.Arrays.copyOf(Arrays.java:3332)
+  	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)
+  	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)
+  	at java.lang.StringBuffer.append(StringBuffer.java:270)
+  	at FASTAParser.parseDNA(FASTAParser.java:55)
+  	at MultiVCFAnalyzer.main(MultiVCFAnalyzer.java:86)
+
+Work dir:
+  /home/alumno19/resultados_eager/work/41/36792e892d57baf3e888f58c7c0ad1
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [100%] 1 of 1 ✔
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[41/36792e] process > multivcfanalyzer (1)           [100%] 1 of 1, failed: 1 ✘
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        -
+Execution cancelled -- Finishing pending tasks before exit
+Error executing process > 'multivcfanalyzer (1)'
+
+Caused by:
+  Process `multivcfanalyzer (1)` terminated with an error exit status (1)
+
+Command executed:
+
+  pigz -d -f -p 2 ERR1014019.unifiedgenotyper.vcf.gz
+  multivcfanalyzer -Xmx4g NA h19.fasta NA . T 30 10 0.9 0.3 NA *.vcf
+  pigz -p 2 *.tsv *.txt snpAlignment.fasta snpAlignmentIncludingRefGenome.fasta fullAlignment.fasta
+  bgzip -@ 2 *.vcf
+
+Command exit status:
+  1
+
+Command output:
+  MultiVCFAnalyzer - 0.85.2
+  by Alexander Herbig
+
+Command error:
+  No positions to exclude provided! All positions will be used!
+  Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+  	at java.util.Arrays.copyOf(Arrays.java:3332)
+  	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)
+  	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)
+  	at java.lang.StringBuffer.append(StringBuffer.java:270)
+  	at FASTAParser.parseDNA(FASTAParser.java:55)
+  	at MultiVCFAnalyzer.main(MultiVCFAnalyzer.java:86)
+
+Work dir:
+  /home/alumno19/resultados_eager/work/41/36792e892d57baf3e888f58c7c0ad1
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [100%] 1 of 1 ✔
+[c5/f33741] process > vcf2genome (ERR1014019)        [  0%] 0 of 1
+[41/36792e] process > multivcfanalyzer (1)           [100%] 1 of 1, failed: 1 ✘
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        [  0%] 0 of 1
+Execution cancelled -- Finishing pending tasks before exit
+Error executing process > 'multivcfanalyzer (1)'
+
+Caused by:
+  Process `multivcfanalyzer (1)` terminated with an error exit status (1)
+
+Command executed:
+
+  pigz -d -f -p 2 ERR1014019.unifiedgenotyper.vcf.gz
+  multivcfanalyzer -Xmx4g NA h19.fasta NA . T 30 10 0.9 0.3 NA *.vcf
+  pigz -p 2 *.tsv *.txt snpAlignment.fasta snpAlignmentIncludingRefGenome.fasta fullAlignment.fasta
+  bgzip -@ 2 *.vcf
+
+Command exit status:
+  1
+
+Command output:
+  MultiVCFAnalyzer - 0.85.2
+  by Alexander Herbig
+
+Command error:
+  No positions to exclude provided! All positions will be used!
+  Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+  	at java.util.Arrays.copyOf(Arrays.java:3332)
+  	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)
+  	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)
+  	at java.lang.StringBuffer.append(StringBuffer.java:270)
+  	at FASTAParser.parseDNA(FASTAParser.java:55)
+  	at MultiVCFAnalyzer.main(MultiVCFAnalyzer.java:86)
+
+Work dir:
+  /home/alumno19/resultados_eager/work/41/36792e892d57baf3e888f58c7c0ad1
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+
+executor >  local (20)
+[6f/f8e959] process > makeBWAIndex (h19.fasta)       [100%] 1 of 1 ✔
+[e3/8b9372] process > makeFastaIndex (h19.fasta)     [100%] 1 of 1 ✔
+[81/fec5d9] process > makeSeqDict (h19.fasta)        [100%] 1 of 1 ✔
+[-        ] process > convertBam                     -
+[-        ] process > indexinputbam                  -
+[43/59a0a0] process > fastqc (ERR1014019_L0)         [100%] 1 of 1 ✔
+[-        ] process > fastp                          -
+[-        ] process > adapter_removal                -
+[-        ] process > post_ar_fastq_trimming         -
+[-        ] process > lanemerge                      -
+[-        ] process > lanemerge_hostremoval_fastq    -
+[-        ] process > fastqc_after_clipping          -
+[-        ] process > bwa                            -
+[3a/0aa734] process > bwamem (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > circulargenerator              -
+[-        ] process > circularmapper                 -
+[-        ] process > bowtie2                        -
+[-        ] process > hostremoval_input_fastq        -
+[-        ] process > seqtype_merge                  -
+[4b/61d2c6] process > samtools_flagstat (ERR1014019) [100%] 1 of 1 ✔
+[d1/8a43be] process > samtools_filter (ERR1014019)   [100%] 1 of 1 ✔
+[6d/e915b8] process > samtools_flagstat_after_fil... [100%] 1 of 1 ✔
+[4d/fd644e] process > endorSpy (ERR1014019)          [100%] 1 of 1 ✔
+[-        ] process > dedup                          -
+[3a/469121] process > markduplicates (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > library_merge                  -
+[e8/5c005f] process > preseq (ERR1014019)            [100%] 1 of 1 ✔
+[-        ] process > bedtools                       -
+[e0/ccacee] process > damageprofiler (ERR1014019)    [100%] 1 of 1 ✔
+[-        ] process > mapdamage_calculation          -
+[-        ] process > mapdamage_rescaling            -
+[-        ] process > mask_reference_for_pmdtools    -
+[-        ] process > pmdtools                       -
+[-        ] process > bam_trim                       -
+[-        ] process > additional_library_merge       -
+[43/3d6e0c] process > qualimap (ERR1014019)          [100%] 1 of 1 ✔
+[85/5dc0cd] process > picard_addorreplacereadgrou... [100%] 1 of 1 ✔
+[ff/e6c8ae] process > genotyping_ug (ERR1014019)     [100%] 1 of 1 ✔
+[-        ] process > genotyping_hc                  -
+[-        ] process > genotyping_freebayes           -
+[-        ] process > genotyping_pileupcaller        -
+[-        ] process > eigenstrat_snp_coverage        -
+[-        ] process > genotyping_angsd               -
+[03/5d5731] process > bcftools_stats (ERR1014019)    [100%] 1 of 1 ✔
+[c5/f33741] process > vcf2genome (ERR1014019)        [100%] 1 of 1, failed: 1 ✘
+[41/36792e] process > multivcfanalyzer (1)           [100%] 1 of 1, failed: 1 ✘
+[-        ] process > mtnucratio                     -
+[-        ] process > sexdeterrmine_prep             -
+[-        ] process > sexdeterrmine                  -
+[-        ] process > nuclear_contamination          -
+[-        ] process > print_nuclear_contamination    -
+[-        ] process > metagenomic_complexity_filter  -
+[-        ] process > malt                           -
+[-        ] process > maltextract                    -
+[-        ] process > kraken                         -
+[-        ] process > kraken_parse                   -
+[-        ] process > kraken_merge                   -
+[ec/0e98ea] process > output_documentation           [100%] 1 of 1 ✔
+[f9/1d69db] process > get_software_versions          [100%] 1 of 1 ✔
+[-        ] process > multiqc                        [  0%] 0 of 1
+Execution cancelled -- Finishing pending tasks before exit
+Error executing process > 'multivcfanalyzer (1)'
+
+Caused by:
+  Process `multivcfanalyzer (1)` terminated with an error exit status (1)
+
+Command executed:
+
+  pigz -d -f -p 2 ERR1014019.unifiedgenotyper.vcf.gz
+  multivcfanalyzer -Xmx4g NA h19.fasta NA . T 30 10 0.9 0.3 NA *.vcf
+  pigz -p 2 *.tsv *.txt snpAlignment.fasta snpAlignmentIncludingRefGenome.fasta fullAlignment.fasta
+  bgzip -@ 2 *.vcf
+
+Command exit status:
+  1
+
+Command output:
+  MultiVCFAnalyzer - 0.85.2
+  by Alexander Herbig
+
+Command error:
+  No positions to exclude provided! All positions will be used!
+  Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+  	at java.util.Arrays.copyOf(Arrays.java:3332)
+  	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)
+  	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)
+  	at java.lang.StringBuffer.append(StringBuffer.java:270)
+  	at FASTAParser.parseDNA(FASTAParser.java:55)
+  	at MultiVCFAnalyzer.main(MultiVCFAnalyzer.java:86)
+
+Work dir:
+  /home/alumno19/resultados_eager/work/41/36792e892d57baf3e888f58c7c0ad1
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`

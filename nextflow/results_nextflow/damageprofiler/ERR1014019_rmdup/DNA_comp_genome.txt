@@ -1,0 +1,10 @@
+# table produced by calculations.DamageProfiler
+# using mapped file ERR1014019_rmdup.bam
+# Sample ID: ERR1014019_rmdup.bam
+DNA base frequencies Sample
+A	C	G	T
+0.2184673843145855	0.283175108818074	0.29088808929958704	0.20746941756775342
+
+DNA base frequencies Reference
+A	C	G	T
+0.21671012356875638	0.28186935327257584	0.2915448805469162	0.2098756426117516

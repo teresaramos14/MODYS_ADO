@@ -1,0 +1,93 @@
+----------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~\
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/eager v2.5.0
+----------------------------------------------------
+
+Run Name: big_lumiere
+
+####################################################
+## nf-core/eager execution completed unsuccessfully! ##
+####################################################
+The exit status of the task that caused the workflow execution to fail was: 1.
+The full error message was:
+
+Error executing process > 'vcf2genome (ERR1014019)'
+
+Caused by:
+  Process `vcf2genome (ERR1014019)` terminated with an error exit status (1)
+
+Command executed:
+
+  pigz -d -f -p 2 ERR1014019.unifiedgenotyper.vcf.gz
+  vcf2genome -Xmx4g -draft ERR1014019.fasta -draftname "ERR1014019" -in ERR1014019.unifiedgenotyper.vcf -minc 10 -minfreq 0.8 -minq 20 -ref h19.fasta -refMod ERR1014019.fasta_refmod.fasta -uncertain ERR1014019.fasta_uncertainty.fasta
+  pigz -f -p 2 ERR1014019.fasta*
+  bgzip -@ 2 *.vcf
+
+Command exit status:
+  1
+
+Command output:
+  VCF2Genome (v. 0.91 2017-01-13)
+  by Alexander Herbig (<= v0.84) and Alexander Peltzer (>v0.84)
+  herbig@shh.mpg.de, peltzer@shh.mpg.de
+
+Command error:
+  Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+  	at java.util.Arrays.copyOf(Arrays.java:3332)
+  	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)
+  	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)
+  	at java.lang.StringBuffer.append(StringBuffer.java:270)
+  	at FastAIO.FASTAParser.parseDNA(FASTAParser.java:73)
+  	at FastAIO.FASTAParser.<init>(FASTAParser.java:34)
+  	at VCF2Genome.setupVariables(VCF2Genome.java:162)
+  	at VCF2Genome.<init>(VCF2Genome.java:147)
+  	at VCF2Genome.main(VCF2Genome.java:129)
+
+Work dir:
+  /home/alumno19/resultados_eager/resultados_eager_eck/work/34/cfa4783d29608502a58745d64ba016
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+
+
+
+The workflow was completed at 2025-03-27T13:37:09.276+01:00 (duration: 1h 8m 19s)
+
+The command used to launch the workflow was as follows:
+
+  nextflow run nf-core/eager -r 2.5.0 -profile docker --input /home/alumno19/bin/FASTQ/ERR1014019.fastq.gz --single_end --fasta /home/alumno19/trabajo_def_igv/h19.fasta --qualitymax 64 --skip_adapterremoval true --clip_min_read_quality 20 --post_ar_trim_front 50 --mapper bwamem --run_bam_filtering --bam_mapping_quality_threshold 20 --bam_filter_minreadlength 50 --run_genotyping true --genotyping_tool ug --genotyping_source raw --run_vcf2genome true --vcf2genome_minq 20 --vcf2genome_minc 10 --run_multivcfanalyzer false --max_memory 32.GB --max_time 24h --max_cpus 40
+
+
+
+Pipeline Configuration:
+-----------------------
+ - Pipeline Release: 2.5.0
+ - Run Name: big_lumiere
+ - Input: /home/alumno19/bin/FASTQ/ERR1014019.fastq.gz
+ - Fasta Ref: /home/alumno19/trabajo_def_igv/h19.fasta
+ - Max Resources: 32.GB memory, 40 cpus, 24h time per job
+ - Container: docker - nfcore/eager:2.5.0
+ - Output dir: ./results
+ - Launch dir: /home/alumno19/resultados_eager/resultados_eager_eck
+ - Working dir: /home/alumno19/resultados_eager/resultados_eager_eck/work
+ - Script dir: /home/alumno19/.nextflow/assets/nf-core/eager
+ - User: alumno19
+ - Config Profile: docker
+ - Config Files: /home/alumno19/.nextflow/assets/nf-core/eager/nextflow.config
+ - Date Started: 2025-03-27T12:28:49.907+01:00
+ - Date Completed: 2025-03-27T13:37:09.276+01:00
+ - Pipeline script file path: /home/alumno19/.nextflow/assets/nf-core/eager/main.nf
+ - Pipeline script hash ID: a6db64b7bf547c1ab32b29e0bf4ad670
+ - Pipeline repository Git URL: https://github.com/nf-core/eager.git
+ - Pipeline repository Git Commit: a2c9f87d173ca3820ed3bf5f56d67a3a69cfa489
+ - Pipeline Git branch/tag: 2.5.0
+ - Nextflow Version: 20.07.1
+ - Nextflow Build: 5412
+ - Nextflow Compile Timestamp: 24-07-2020 15:18 UTC
+
+--
+nf-core/eager
+https://github.com/nf-core/eager
